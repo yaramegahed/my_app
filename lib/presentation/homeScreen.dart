@@ -5,67 +5,82 @@ import 'package:my_app/presentation/searchScreen.dart';
 import 'favoriteScreen.dart';
 
 class HomeScreen extends StatefulWidget {
-
-   const HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=0;
+  int selectedIndex = 0;
 
-  List<IconData> data=[
+  List<IconData> data = [
     Icons.home,
     Icons.favorite_border,
     Icons.search,
   ];
   List<Widget> screens = [
-    HomeScreen(),
-    FavoriteScreen(),
-    SearchScreen(),
+    const HomeScreen(),
+    const FavoriteScreen(),
+    const SearchScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-    appBar: AppBar(
-    backgroundColor: Colors.blueGrey,
-      title: const Center(child: Text("C a f e",style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic),)),
-      actions: [IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder :(context)=>const Profile()));},
-          icon: const Icon(Icons.account_circle_rounded,))],
-    ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: const Center(
+            child: Text(
+          "C a f e",
+          style: TextStyle(fontSize: 25, fontStyle: FontStyle.italic),
+        )),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Profile()));
+              },
+              icon: const Icon(
+                Icons.account_circle_rounded,
+              ))
+        ],
+      ),
       drawer: Drawer(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width / 2 + 80,
+        width: MediaQuery.of(context).size.width / 2 + 80,
         child: ListView(
           padding: EdgeInsets.zero,
-          children:  [
-        DrawerHeader(
-        decoration: const BoxDecoration(
-        color: Colors.blueGrey,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InkWell(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder :(context)=>const Profile()));},
-              child: const CircleAvatar(
-                backgroundImage: AssetImage("assets/images/profile.jpg"),
-                radius: 35,
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Profile()));
+                    },
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/profile.jpg"),
+                      radius: 35,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  const Text("name",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  const Text("@username", style: TextStyle(fontSize: 18)),
+                ],
               ),
             ),
-            const SizedBox(height: 15),
-            const Text("name",
-                style:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-            const SizedBox(height: 5,),
-            const Text("@username", style: TextStyle(fontSize: 18)),
-          ],
-        ),
-      ),
             const ListBody(
               children: [
                 SizedBox(height: 10),
@@ -73,80 +88,80 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(10.0),
                   child: Row(
                     children: [
-                      Icon(Icons.settings,color: Colors.redAccent,size: 25),
+                      Icon(Icons.settings, color: Colors.redAccent, size: 25),
                       SizedBox(width: 15),
-                      Text("Setting",style: TextStyle(fontSize: 23,color: Colors.black)),
-
+                      Text("Setting",
+                          style: TextStyle(fontSize: 23, color: Colors.black)),
                     ],
                   ),
                 ),
                 SizedBox(height: 10),
                 Padding(
-                   padding: EdgeInsets.all(10.0),
-                   child: Row(
-                     children: [
-                      Icon(Icons.notifications,color: Colors.redAccent,size: 25),
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.notifications,
+                          color: Colors.redAccent, size: 25),
                       SizedBox(width: 15),
-                      Text("Notifications",style: TextStyle(fontSize: 23,color: Colors.black)),
-
+                      Text("Notifications",
+                          style: TextStyle(fontSize: 23, color: Colors.black)),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.bookmark, color: Colors.redAccent, size: 25),
+                      SizedBox(width: 15),
+                      Text("Bookmark",
+                          style: TextStyle(fontSize: 23, color: Colors.black)),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.support, color: Colors.redAccent, size: 25),
+                      SizedBox(width: 15),
+                      Text("Support",
+                          style: TextStyle(fontSize: 23, color: Colors.black)),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.logout, color: Colors.redAccent, size: 25),
+                      SizedBox(width: 15),
+                      Text("Log out",
+                          style: TextStyle(fontSize: 23, color: Colors.black)),
+                    ],
+                  ),
+                ),
               ],
             ),
-              ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.bookmark,color: Colors.redAccent,size: 25),
-                      SizedBox(width: 15),
-                      Text("Bookmark",style: TextStyle(fontSize: 23,color: Colors.black)),
-
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.support,color: Colors.redAccent,size: 25),
-                      SizedBox(width: 15),
-                      Text("Support",style: TextStyle(fontSize: 23,color: Colors.black)),
-
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.logout,color: Colors.redAccent,size: 25),
-                      SizedBox(width: 15),
-                      Text("Log out",style: TextStyle(fontSize: 23,color: Colors.black)),
-
-                    ],
-                  ),
-                ),
-      ],
-      ),
-    ],
-     ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: IndexedStack(
-        index: selectedIndex,
-        children: screens,
-      ),
-
+          index: selectedIndex,
+          children: screens,
         ),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(5),
         child: Material(
           elevation: 10,
           borderRadius: BorderRadius.circular(20),
           color: Colors.blueGrey,
-          child: Container(
+          child: SizedBox(
             height: 70,
             width: double.infinity,
             child: ListView.builder(
@@ -169,18 +184,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           border: i == selectedIndex
                               ? const Border(
-                            top: BorderSide(width: 3, color: Colors.white),
-                          )
+                                  top:
+                                      BorderSide(width: 3, color: Colors.white),
+                                )
                               : null,
                           gradient: i == selectedIndex
                               ? LinearGradient(
-                            colors: [
-                              Colors.brown.shade100,
-                              Colors.brown,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          )
+                                  colors: [
+                                    Colors.brown.shade100,
+                                    Colors.brown,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                )
                               : null,
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -188,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           data[i],
                           size: 25,
                           color:
-                          i == selectedIndex ? Colors.white : Colors.brown,
+                              i == selectedIndex ? Colors.white : Colors.brown,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -197,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                           fontSize: 12,
                           color:
-                          i == selectedIndex ? Colors.white : Colors.brown,
+                              i == selectedIndex ? Colors.white : Colors.brown,
                         ),
                       ),
                     ],
@@ -225,7 +241,10 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 }
+
 class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

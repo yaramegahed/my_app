@@ -24,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don\'t have an account?"),
+                const Text("Don't have an account?"),
                 TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -111,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen1(),
+            builder: (context) => const HomeScreen1(),
           ));
     } else {
       print("object");

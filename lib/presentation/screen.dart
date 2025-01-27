@@ -22,7 +22,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
   ];
 
   List<Widget> screens = [
-    HomeContent(),
+    const HomeContent(),
     const FavoriteScreen(),
     const SearchScreen(),
   ];
@@ -221,6 +221,8 @@ class _HomeScreen1State extends State<HomeScreen1> {
   }
 
 class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

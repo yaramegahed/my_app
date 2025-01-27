@@ -23,8 +23,8 @@ class List1 extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: CircleAvatar(
                     radius: 40,
-                    child: Icon(Icons.person,color: Colors.black,),
                     backgroundColor: Colors.cyan,
+                    child: Icon(Icons.person,color: Colors.black,),
                   ),
                 );
               }),

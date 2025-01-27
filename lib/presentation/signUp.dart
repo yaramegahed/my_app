@@ -148,7 +148,7 @@ class _SignUpState extends State<SignUp> {
     User? user = await _auth.signUpwithEmailandPassword(email, password);
     if(user != null){
       print("user is successfully created");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen1(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen1(),));
     }else{
       print("object");
     }
